@@ -106,14 +106,32 @@ function getHeight (rootNode) {
 }
 
 function countNodes (rootNode) {
-    // let count
-    // let nodes = [rootNode];
+    if (!rootNode) return;
+    let count = 0
+    let queue = [rootNode];
 
-    // while (nodes.length)
+      while(queue.length > 0) {
+        count++
+        let node = queue.shift();
+
+        if (node.left) queue.push(node.left)
+        if (node.right) queue.push(node.right)
+
+      }
+
+    return count
 }
+//      1
+//    /   \
+//   2     3
+//  / \   / \
+// 4   5 6   7
 
 function balancedTree (rootNode) {
-  // Your code here
+  let leftHeight = -1
+  let rightHeight = -1
+
+
 }
 
 function getParentNode (rootNode, target) {

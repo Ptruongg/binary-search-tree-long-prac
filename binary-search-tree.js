@@ -108,7 +108,7 @@ class TreeNode {
 
 
     inOrderTraversal(currentNode = this.root) {
-      // Your code here left, self, right 1,2,3,4,5,6,7
+      // Your code here left, self, right 1,2,3,4,5,git6,7
       if (!currentNode) return;
       this.inOrderTraversal(currentNode.left)
       console.log(currentNode.val)
