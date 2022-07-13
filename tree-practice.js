@@ -19,19 +19,75 @@ function findMinBST (rootNode) {
 }
 
 function findMaxBST (rootNode) {
-  let
+    let current = rootNode;
+
+    while (current.right) {
+        current = current.right
+    };
+
+    return current.val;
 }
 
 function findMinBT (rootNode) {
-  // Your code here
+// start at the root (rootNode)
+// create a min variable
+// look thru all the nodes
+// create some type of queue (to save nums and compare to min)
+// for both left/right, once l/r = null return whatever value we have to the queue
+// return min
+
+let min = Infinity;
+let queue = [rootNode]
+
+while (queue.length) {
+    let current = queue.pop();
+
+    if (current.val < min) min = current.val;
+
+    if (current.left) queue.push(current.left);
+    if (current.right) queue.push(current.right)
 }
+
+  return min;
+};
+
+// while (queue.length > 0) {
+//   let current = queue.shift();
+
+//   if (current.val < min) min = current.val;
+
+//   if (current.left) queue.push(current.left);
+//   if (current.right) queue.push(current.right);
+// }
 
 function findMaxBT (rootNode) {
-  // Your code here
-}
+    let max = -Infinity;
+    let queue = [rootNode];
+
+    while (queue.length) {
+        let current = queue.shift();
+
+        if (current.val > max) max = current.val;
+
+        if (current.left) queue.push(current.left);
+        if (current.right) queue.push(current.right);
+    }
+
+    return max;
+  }
 
 function getHeight (rootNode) {
-  // Your code here
+    let height
+    let current = rootNode;
+    let queue = [rootNode];
+
+    while (current.left) {
+        queue.push(current.left)
+        current = current.left;
+    };
+
+    height = queue.length;
+    return height;
 }
 
 function countNodes (rootNode) {
